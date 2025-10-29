@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Simple JS and DOM Example</title>
+</head>
+<body>
+  <h2>Student Information</h2>
+  <button onclick="loadData()">Load Data</button>
+
+  <div id="output" style="margin-top: 15px;"></div>
+
+  <script>
+    // Step 1: Create local data (like an API response)
+    var students = [
+      { name: "Ali", age: 20, course: "Web Technology" },
+      { name: "Sara", age: 22, course: "Database Systems" },
+      { name: "Ahmed", age: 21, course: "Operating Systems" }
+    ];
+
+    // Step 2: Function to display the data on button click
+    function loadData() {
+      // Show loading message
+      document.getElementById("output").innerHTML = "Loading data...";
+
+      // Step 3: Simulate a small delay (like AJAX)
+      setTimeout(function() {
+        var result = ""; // empty string to store HTML
+
+        // Step 4: Loop through the data
+        for (var i = 0; i < students.length; i++) {
+          result = result + 
+            "<div style='border:1px solid gray; margin:5px; padding:10px;'>" +
+              "<h3>" + students[i].name + "</h3>" +
+              "<p>Age: " + students[i].age + "</p>" +
+              "<p>Course: " + students[i].course + "</p>" +
+            "</div>";
+        }
+
+        // Step 5: Add result to the web page
+        document.getElementById("output").innerHTML = result;
+
+      }, 1000); // wait 1 second
+    }
+  </script>
+</body>
+</html>
